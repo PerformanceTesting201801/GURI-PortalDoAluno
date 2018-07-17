@@ -1243,7 +1243,7 @@ val httpProtocol = http
 	
 	
 	setUp(
-		PUMatriculador.inject(atOnceUsers(15))
+		PUMatriculador.inject(atOnceUsers(467))
 	).protocols(httpProtocol)
 
 }
