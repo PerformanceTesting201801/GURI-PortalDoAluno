@@ -621,8 +621,8 @@ val httpProtocol = http
 			.headers(headers_55)))
 		.pause(2)
 		.feed(solicitacaoCSV)
-		.pause(6)
-		.repeat(2006){
+		.pause(10)
+		.repeat(467){
 			doIfEquals("${matriculas}", "${matriculaSolicitacao}") {
   			exec(http("request_144")
 			.post("/guri/pta/solicitar_matricula/atuSolicit")
@@ -1243,7 +1243,7 @@ val httpProtocol = http
 	
 	
 	setUp(
-		PUMatriculadorERelatorioErrante.inject(atOnceUsers(15))
+		PUMatriculadorERelatorioErrante.inject(atOnceUsers(467))
 	).protocols(httpProtocol)
 
 }
