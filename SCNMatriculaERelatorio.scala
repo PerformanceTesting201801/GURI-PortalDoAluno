@@ -1238,16 +1238,16 @@ val httpProtocol = http
 
 	}
 
-	val PURelatorio = scenario("SolicitacaoELogin").exec(Login.scnLogin,Relatorio.scngerarRelatorio, Sair.scnSair)
-	val PUMatriculadorERelatorio = scenario("SolicitacaoELogin").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Relatorio.scngerarRelatorio, Sair.scnSair)
-	val PUMatriculadorERelatorioErrante = scenario("SolicitacaoELogin").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Relatorio.scngerarRelatorio, Sair.scnSair)
-	val PUMatriculador = scenario("SolicitacaoELogin").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Sair.scnSair)
+	val PURelatorio = scenario("Relatorio").exec(Login.scnLogin,Relatorio.scngerarRelatorio, Sair.scnSair)
+	val PUMatriculadorERelatorio = scenario("PUMatriculadorERelatorio").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Relatorio.scngerarRelatorio, Sair.scnSair)
+	val PUMatriculadorERelatorioErrante = scenario("PUMatriculadorERelatorioErrante").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Relatorio.scngerarRelatorio, Sair.scnSair)
+	val PUMatriculador = scenario("PUMatriculador").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Sair.scnSair)
 
 	setUp(
-		PURelatorio.inject(atOnceUsers(15)),
-		PUMatriculadorERelatorio.inject(atOnceUsers(15)),
-		PUMatriculadorERelatorioErrante.inject(atOnceUsers(15)),
-		PUMatriculador.inject(atOnceUsers(15))
+		PURelatorio.inject(atOnceUsers(47)),
+		PUMatriculadorERelatorio.inject(atOnceUsers(186)),
+		PUMatriculadorERelatorioErrante.inject(atOnceUsers(47)),
+		PUMatriculador.inject(atOnceUsers(47))
 	).protocols(httpProtocol)
 
 }
