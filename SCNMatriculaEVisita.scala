@@ -1242,8 +1242,8 @@ val httpProtocol = http
 	val PUVisitante = scenario("LoginApenas").exec(Login.scnLogin, Sair.scnSair)
 	val PUMatriculadorERelatorio = scenario("SolicitacaoELogin").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Sair.scnSair)
 	setUp(
-		PUMatriculadorERelatorio.inject(atOnceUsers(1)),
-		PUVisitante.inject(atOnceUsers(1))
+		PUMatriculadorERelatorio.inject(atOnceUsers(420)),
+		PUVisitante.inject(atOnceUsers(47))
 	).protocols(httpProtocol)
 
 }
