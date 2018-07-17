@@ -1240,13 +1240,13 @@ val httpProtocol = http
 
 
 
-val PURelatorio = scenario("SolicitacaoELogin").exec(Login.scnLogin, Relatorio.scngerarRelatorio, Sair.scnSair)
-val PUMatriculadorERelatorio = scenario("SolicitacaoELogin").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Relatorio.scngerarRelatorio, Sair.scnSair)
-val PUMatriculador = scenario("SolicitacaoELogin").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Sair.scnSair)
+val PURelatorio = scenario("Relatorio").exec(Login.scnLogin, Relatorio.scngerarRelatorio, Sair.scnSair)
+val PUMatriculadorERelatorio = scenario("matricula").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Relatorio.scngerarRelatorio, Sair.scnSair)
+val PUMatriculador = scenario("matriculadorzão").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Sair.scnSair)
 	setUp(
-		PURelatorio.inject(atOnceUsers(1)),
-		PUMatriculadorERelatorio.inject(atOnceUsers(1)),
-		PUMatriculador.inject(atOnceUsers(1))
+		PURelatorio.inject(atOnceUsers(47)),
+		PUMatriculadorERelatorio.inject(atOnceUsers(280)),
+		PUMatriculador.inject(atOnceUsers(140))
 	).protocols(httpProtocol)
 
 }
