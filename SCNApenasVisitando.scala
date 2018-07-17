@@ -172,7 +172,7 @@ val httpProtocol = http
             http("request_55")
 			.get("/guri/public/themes/moder//imgs/favicon-guri16.png")
 			.headers(headers_55)))
-		.pause(9)
+		.pause(10)
 		.feed(matriculaCSV)
 		.exec(http("request_56")
 			.get("/guri/public/themes/moder//imgs/diagonals_3.png")
@@ -1242,7 +1242,7 @@ val httpProtocol = http
 	val PUVisitante = scenario("Login").exec(Login.scnLogin,Sair.scnSair)
 	
 	setUp(
-		PUVisitante.inject(atOnceUsers(15))
+		PUVisitante.inject(atOnceUsers(467))
 	).protocols(httpProtocol)
 
 }
