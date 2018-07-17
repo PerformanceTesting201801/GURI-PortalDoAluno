@@ -1243,8 +1243,8 @@ val httpProtocol = http
 	val PUMatriculador = scenario("SolicitacaoELogin").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Sair.scnSair)
 	
 	setUp(
-		PURelatorio.inject(atOnceUsers(15)),
-		PUMatriculador.inject(atOnceUsers(15)) 
+		PURelatorio.inject(atOnceUsers(327)),
+		PUMatriculador.inject(atOnceUsers(140)) 
 	).protocols(httpProtocol)
 
 }
