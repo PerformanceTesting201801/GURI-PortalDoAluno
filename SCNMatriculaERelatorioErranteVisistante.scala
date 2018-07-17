@@ -4,9 +4,9 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import io.gatling.jdbc.Predef._
 
-class LoginESolicitar extends Simulation {
+class SCNMatriculaERelatorioErranteVisistante extends Simulation {
 	
-val SCNMatriculaERelatorioErranteVisistante = http
+val httpProtocol = http
 		.baseURL("https://guriensino.unipampa.edu.br")
 		.inferHtmlResources()
 		.acceptHeader("*/*")
@@ -1240,19 +1240,17 @@ val SCNMatriculaERelatorioErranteVisistante = http
 
 
 	
-	val PUVisitante = scenario("SolicitacaoELogin").exec(Login.scnLogin, Sair.scnSair)
-	val PURelatorio = scenario("SolicitacaoELogin").exec(Login.scnLogin,Relatorio.scngerarRelatorio, Sair.scnSair)
-	val PUMatriculadorERelatorio = scenario("SolicitacaoELogin").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Relatorio.scngerarRelatorio, Sair.scnSair)
-	val PUMatriculadorERelatorioErrante = scenario("SolicitacaoELogin").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Relatorio.scngerarRelatorio, Sair.scnSair)
-	val PUMatriculador = scenario("SolicitacaoELogin").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Sair.scnSair)
+	val PUVisitante = scenario("PUVisitante").exec(Login.scnLogin, Sair.scnSair)
+	val PUMatriculadorERelatorio = scenario("PUMatriculadorERelatorio").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Relatorio.scngerarRelatorio, Sair.scnSair)
+	val PUMatriculadorERelatorioErrante = scenario("PUMatriculadorERelatorioErrante").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Relatorio.scngerarRelatorio, Sair.scnSair)
+	val PUMatriculador = scenario("PUMatriculador").exec(Login.scnLogin, Solicitacao.scnSolicitarMatricula, Sair.scnSair)
 
 	
 	setUp(
-		PUVisitante.inject(atOnceUsers(15)),
-		PURelatorio.inject(atOnceUsers(15)),
-		PUMatriculadorERelatorio.inject(atOnceUsers(15)),
-		PUMatriculadorERelatorioErrante.inject(atOnceUsers(15)),
-		PUMatriculador.inject(atOnceUsers(15))
+		PUVisitante.inject(atOnceUsers(47)),
+		PUMatriculadorERelatorio.inject(atOnceUsers(188)),
+		PUMatriculadorERelatorioErrante.inject(atOnceUsers(93)),
+		PUMatriculador.inject(atOnceUsers(139))
 	).protocols(httpProtocol)
 
 }
